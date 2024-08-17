@@ -1,0 +1,24 @@
+<form [formGroup]="form" class="card" *ngIf="isGameStarted === false">
+    <mat-form-field appearance="outline" class="individualFilter">
+        <mat-label>Quantidade de pessoas</mat-label>
+        <input matInput type="number" min="1" placeholder="Ex. 3" formControlName="quantity">
+    </mat-form-field>
+    <button mat-raised-button (click)="startGame()">Começar jogo</button>
+</form>
+
+<div class="card" *ngIf="isGameStarted === true">
+    <div class="topBar">
+        <h4 class="numJogadores">Número de jogadores: {{playerQuantity}}</h4>
+        <button mat-raised-button (click)="mainMenu()">Menu principal</button>
+    </div>
+    <div class="contentDiv" *ngIf="isWhite === false">
+        <h6>Jogador {{currentPlayerNumber}}</h6>
+        <p>Palavra: {{getPaper()}}</p>
+        <button mat-raised-button (click)="letsDraw()" *ngIf="currentPlayerNumber === playerQuantity">Vamos desenhar</button>
+        <button mat-raised-button (click)="letsDraw()" *ngIf="currentPlayerNumber !== playerQuantity">Já li</button>
+    </div>
+    <div class="contentDiv" *ngIf="isWhite === true">
+        <button mat-raised-button (click)="nextPlayer()" *ngIf="currentPlayerNumber !== playerQuantity">Próximo jogador</button>
+        <button mat-flat-button (click)="newWord()" *ngIf="currentPlayerNumber === playerQuantity">Próxima palavra</button>
+    </div>
+</div>

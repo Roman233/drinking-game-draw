@@ -2,9 +2,14 @@
 
 # Compiled output
 /dist
+/public
 /tmp
 /out-tsc
 /bazel-out
+
+.firebaserc
+firebase.json
+*.cache
 
 # Node
 /node_modules

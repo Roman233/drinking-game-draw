@@ -3,7 +3,7 @@
         <mat-label>Quantidade de pessoas</mat-label>
         <input matInput type="number" min="1" placeholder="Ex. 3" formControlName="quantity">
     </mat-form-field>
-    <button mat-raised-button (click)="startGame()">Começar jogo</button>
+    <button mat-raised-button class="whiteBtn" (click)="startGame()">Começar jogo</button>
 </form>
 
 <div class="card" *ngIf="isGameStarted === true">

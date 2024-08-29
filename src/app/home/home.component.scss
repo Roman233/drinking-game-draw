@@ -10,9 +10,32 @@
 
 .topBar{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 .numJogadores{
     margin-right: 1vw;
+    font-size: large;
+}
+
+.contentDiv{
+    display: flex;
+    flex-direction: column;
+    min-height: 25vh;
+    justify-content: center;
+}
+
+.reportBtn{
+    background: red !important;
+    color: white !important;
+}
+
+.whiteBtn{
+    background: white !important;
+    color: black !important;
+}
+
+.word{
+    font-weight: bold;
+    font-size: x-large;
 }

@@ -2,6 +2,7 @@ import { AfterViewInit, ChangeDetectorRef, Component, OnInit } from '@angular/co
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { environment } from '../../environments/environment';
 import { LocalService } from './local.service';
+import { HomeService } from './home.service';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +19,9 @@ export class HomeComponent implements AfterViewInit {
   currentWord = '';
   private wordList: String[] = [];
   
-  constructor(private localService: LocalService, private changeDetectorRef: ChangeDetectorRef){
+  constructor(private localService: LocalService, private changeDetectorRef: ChangeDetectorRef,
+    private homeService: HomeService
+  ){
     this.form = new FormGroup({
       quantity: new FormControl('', Validators.required) 
     });
@@ -103,6 +106,11 @@ export class HomeComponent implements AfterViewInit {
   nextPlayer(){
     this.currentPlayerNumber++;
     this.isWhite = false;
+  }
+
+  reportWord(){
+    this.homeService.reportWord(this.currentWord);
+    this.newWord();
   }
 
   newWord(){

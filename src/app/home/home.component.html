@@ -8,17 +8,21 @@
 
 <div class="card" *ngIf="isGameStarted === true">
     <div class="topBar">
-        <h4 class="numJogadores">Número de jogadores: {{playerQuantity}}</h4>
-        <button mat-raised-button (click)="mainMenu()">Menu principal</button>
+        <button mat-raised-button (click)="mainMenu()" class="whiteBtn">Menu principal</button>
+        <h5 class="numJogadores">Número de jogadores: {{playerQuantity}}</h5>
     </div>
+    <div style="width: 100%; height:1px; background: white; margin-bottom: 2vh;"></div>
     <div class="contentDiv" *ngIf="isWhite === false">
-        <h6>Jogador {{currentPlayerNumber}}</h6>
-        <p>Palavra: {{getPaper()}}</p>
+        <span style="font-size: medium; margin-bottom: 2vh;">Jogador {{currentPlayerNumber}}</span>
+        <p class="word">Palavra: {{getPaper()}}</p>
+        <div style="width: 100%; height:1px; background: white; margin-bottom: 2vh;"></div>
         <button mat-raised-button (click)="letsDraw()" *ngIf="currentPlayerNumber === playerQuantity">Vamos desenhar</button>
-        <button mat-raised-button (click)="letsDraw()" *ngIf="currentPlayerNumber !== playerQuantity">Já li</button>
-    </div>
+        <button mat-raised-button (click)="letsDraw()" class="whiteBtn" *ngIf="currentPlayerNumber !== playerQuantity">Já li</button>
+<!--         <br>
+        <button mat-raised-button class="reportBtn" (click)="reportWord()" *ngIf="currentPlayerNumber !== playerQuantity">Reportar palavra</button>
+ -->    </div>
     <div class="contentDiv" *ngIf="isWhite === true">
-        <button mat-raised-button (click)="nextPlayer()" *ngIf="currentPlayerNumber !== playerQuantity">Próximo jogador</button>
-        <button mat-flat-button (click)="newWord()" *ngIf="currentPlayerNumber === playerQuantity">Próxima palavra</button>
+        <button mat-raised-button (click)="nextPlayer()" class="whiteBtn" *ngIf="currentPlayerNumber !== playerQuantity">Próximo jogador</button>
+        <button mat-flat-button (click)="newWord()" class="whiteBtn" *ngIf="currentPlayerNumber === playerQuantity">Próxima palavra</button>
     </div>
 </div>
